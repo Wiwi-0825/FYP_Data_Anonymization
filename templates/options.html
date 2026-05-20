@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Choose Techniques</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#020617,#0f172a,#111827);
+color:white;
+padding:40px;
+}
+
+.container{
+max-width:950px;
+margin:auto;
+padding:40px;
+background:rgba(255,255,255,0.08);
+border-radius:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:30px;
+}
+
+.card{
+padding:18px;
+border-radius:18px;
+background:rgba(255,255,255,0.07);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+background:rgba(255,255,255,0.12);
+}
+
+.small{
+font-size:13px;
+color:#cbd5e1;
+margin-top:6px;
+}
+
+.consent{
+margin-top:25px;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,0.06);
+}
+
+button{
+width:100%;
+margin-top:25px;
+padding:16px;
+border:none;
+border-radius:18px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Choose Privacy Techniques</h1>
+<p>Select one or more anonymization methods.</p>
+
+<form action="/process" method="POST">
+
+<div class="grid">
+
+<label class="card">
+<input type="checkbox" name="nric">
+Remove NRIC
+<div class="small">Replaces NRIC with [REDACTED]</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="email">
+Email Domain Retention
+<div class="small">Masks username but keeps email domain</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="phone">
+Phone Masking
+<div class="small">91234567 → 9123****</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="ip">
+IP Truncation
+<div class="small">192.168.1.25 → 192.168.xxx.xxx</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="name">
+Pseudonymisation
+<div class="small">John → USER001</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="hash">
+Hashing
+<div class="small">ID values become hashed</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="age">
+Generalisation
+<div class="small">Age 23 → Age 20-29</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="secret">
+Record Suppression
+<div class="small">Removes lines containing SECRET</div>
+</label>
+
+<label class="card">
+<input type="checkbox" name="password">
+Password Redaction
+<div class="small">password: abc123 → password:[REDACTED]</div>
+</label>
+
+</div>
+
+<div class="consent">
+<h3>Consent Required</h3>
+<label>
+<input type="checkbox" name="consent" required>
+I consent to temporary processing of this file for anonymization.
+</label>
+</div>
+
+<button type="submit">Preview Anonymized Output ✨</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+My Name is Funky donkey 
+My email is funkydonkeywassup@gmail.com
+My phone number is 98764530
+My IP address is : 192.168.1.128
+Version:v1.2.4
